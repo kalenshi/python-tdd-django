@@ -11,6 +11,8 @@ import unittest
 #############
 # USER STORY #
 #############
+# A user story is a description of how the project will work from the view point of the user
+# User stories are used to structure the functional tests
 # User has heard of this new app called todo list
 # user goes to checkout the home page
 # user notices the page title and header mention to-do list
