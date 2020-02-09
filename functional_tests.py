@@ -57,7 +57,8 @@ class NewVisitorTest(unittest.TestCase):
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1:Finish Machine learning by next Month' for row in rows)
+            any(row.text == '1:Finish Machine learning by next Month' for row in rows),
+            "New to-do item did not appear in table"
         )
         # there is still a text box inviting user to enter another item
         # The page updates again, and now shows both items on her list
