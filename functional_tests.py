@@ -1,5 +1,5 @@
 """
-As the module name suggest, this will contain all the function(black-box) tests
+As the module name suggest, this will contain all the function(black-box) test
 for the To-Do application
 """
 __author__ = "Kalenshi Katebe"
@@ -12,7 +12,7 @@ import unittest
 # USER STORY #
 #############
 # A user story is a description of how the project will work from the view point of the user
-# User stories are used to structure the functional tests
+# User stories are used to structure the functional test
 # User has heard of this new app called todo list
 # user goes to checkout the home page
 # user notices the page title and header mention to-do list
@@ -37,6 +37,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         self.browser.get("http://127.0.0.1:8000")
         self.assertIn('To-Do', self.browser.title)
+        self.fail('Finish the test!')
 
 
 if __name__ == '__main__':
