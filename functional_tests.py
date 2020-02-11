@@ -36,6 +36,11 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.browser.quit()
 
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
     def test_can_start_a_list_and_retrieve_it_later(self):
         # user has heard about a cool new online to-do app.
         # user goes to checkout the home page
@@ -54,10 +59,7 @@ class NewVisitorTest(unittest.TestCase):
         # 1: Finish Machine learning by next Month as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
         time.sleep(4)
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('Finish Machine learning by next Month', [row.text for row in rows])
-
+        self.check_for_row_in_list_table(row_text='Finish Machine learning by next Month')
         # there is still a text box inviting user to enter another item
         # The page updates again, and now shows both items on her list
         self.fail('Finish the test!')
