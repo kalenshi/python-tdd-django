@@ -53,13 +53,11 @@ class NewVisitorTest(unittest.TestCase):
         # when user hits enter, The page updates , and now the page lists
         # 1: Finish Machine learning by next Month as an item in a to-do list table
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(4)
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1:Finish Machine learning by next Month' for row in rows),
-            "New to-do item did not appear in table"
-        )
+        self.assertIn('Finish Machine learning by next Month', [row.text for row in rows])
+
         # there is still a text box inviting user to enter another item
         # The page updates again, and now shows both items on her list
         self.fail('Finish the test!')
