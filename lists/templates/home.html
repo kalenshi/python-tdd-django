@@ -12,9 +12,11 @@
             </form>
             <table id="id_list_table">
                 <tbody>
+                    {% for item in items %}
                     <tr>
-                        <td>{{ new_item_text }}</td>
+                        <td>{{ item.text }}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </body>

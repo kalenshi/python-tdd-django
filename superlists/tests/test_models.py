@@ -22,3 +22,7 @@ class ItemModelTest(TestCase):
 
         self.assertEqual(first_item_saved.text, "The first (ever) list item")
         self.assertEqual(second_item_saved.text, "The second item")
+
+    def test_only_saves_items_when_necessary(self):
+        self.client.get('/')
+        self.assertEqual(Item.objects.count(), 0)
